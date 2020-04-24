@@ -13,7 +13,7 @@ path
 # Load activity labels + features
 
 labels <- fread(file.path(path, "UCI HAR Dataset/activity_labels.txt")
-                        , col.names = c("labels", "activityname"))
+                , col.names = c("labels", "activityname"))
 head(labels)
 
 features <- fread(file.path(path, "UCI HAR Dataset/features.txt")
@@ -44,11 +44,11 @@ train <- fread(file.path(path, "UCI HAR Dataset/train/X_train.txt"))[, newfeatur
 data.table::setnames(train, colnames(train), measurements)
 
 activities.train <- fread(file.path(path, "UCI HAR Dataset/train/Y_train.txt")
-                         , col.names = c("Activity"))
+                          , col.names = c("Activity"))
 #str(trainActivities)
 
 subjects.train <- fread(file.path(path, "UCI HAR Dataset/train/subject_train.txt")
-                       , col.names = c("SubjectNum"))
+                        , col.names = c("SubjectNum"))
 
 train <- cbind(subjects.train, activities.train, train)
 str(train)
@@ -58,10 +58,10 @@ length(train)
 test <- fread(file.path(path, "UCI HAR Dataset/test/X_test.txt"))[, newfeatures, with = FALSE]
 data.table::setnames(test, colnames(test), measurements)
 activities.test <- fread(file.path(path, "UCI HAR Dataset/test/Y_test.txt")
-                        , col.names = c("Activity"))
+                         , col.names = c("Activity"))
 #head(activities.test)
 subjects.test <- fread(file.path(path, "UCI HAR Dataset/test/subject_test.txt")
-                      , col.names = c("SubjectNum"))
+                       , col.names = c("SubjectNum"))
 #str(subjects.test)
 test <- cbind(subjects.test, activities.test, test)
 #head(test)
@@ -80,9 +80,9 @@ str(merge.data)
 # from: $ Activity : int  5 5 5 5 5 5 5 5 5 5 ...
 # to  : $ Activity : Factor w/ 0 levels: NA NA NA NA NA NA NA NA NA NA ...
 
-merge.data[["Activity"]] <- factor(combined[, Activity]
-                                 , levels = labels[["classLabels"]]
-                                 , labels = labels[["activityName"]])
+merge.data[["Activity"]] <- factor(merge.data[, Activity]
+                                   , levels = labels[["classLabels"]]
+                                   , labels = labels[["activityName"]])
 
 #From  : $ SubjectNum : int  1 1 1 1 1 1 1 1 1 1 ...
 #to    : $ SubjectNum : Factor w/ 30 levels "1","2","3","4",..: 1 1 1 1 1 1 1 1 1 1 ...
@@ -92,4 +92,4 @@ merge.data[["SubjectNum"]] <- as.factor(merge.data[, SubjectNum])
 merge.data <- reshape2::melt(data = merge.data, id = c("SubjectNum", "Activity"))
 merge.data <- reshape2::dcast(data = merge.data, SubjectNum + Activity ~ variable, fun.aggregate = mean)
 
-data.table::fwrite(x = merge.data, file = "tidy_data_set.txt", quote = FALSE)
+data.table::fwrite(x = merge.data, file = "tidy_final.txt", quote = FALSE)
