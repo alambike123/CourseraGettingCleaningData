@@ -91,5 +91,4 @@ merge.data[["SubjectNum"]] <- as.factor(merge.data[, SubjectNum])
 
 merge.data <- reshape2::melt(data = merge.data, id = c("SubjectNum", "Activity"))
 merge.data <- reshape2::dcast(data = merge.data, SubjectNum + Activity ~ variable, fun.aggregate = mean)
-
 data.table::fwrite(x = merge.data, file = "tidy_final.txt", quote = FALSE)
