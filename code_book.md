@@ -1,5 +1,5 @@
 ### Code Book
-a
+
 The original information and variable description of this data set can be accessed in the following website: [Original Dataset Information](https://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones)
 
 # Human Activity Recognition Using Smartphones Data Set
