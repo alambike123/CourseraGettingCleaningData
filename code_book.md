@@ -1,0 +1,4 @@
+## Code Book
+
+
+[Dataset Information](https://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones)
