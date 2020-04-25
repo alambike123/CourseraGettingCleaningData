@@ -25,8 +25,12 @@ You should create one R script called *run_analysis.R* that does the following.
 
 ## Files of the Project (Review criteria)
 
+[Github Repository](https://github.com/alambike123/CourseraGettingCleaningData)
+
 [run_analysis.R](https://github.com/alambike123/CourseraGettingCleaningData/blob/master/run_analysis.R)
 
 [tidy_final.txt](https://github.com/alambike123/CourseraGettingCleaningData/blob/master/tidy_final.txt)
 
 [code_book.md](https://github.com/alambike123/CourseraGettingCleaningData/blob/master/code_book.md)
+
+[README.md](https://github.com/alambike123/CourseraGettingCleaningData/blob/master/README.md)
