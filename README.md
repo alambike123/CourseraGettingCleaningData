@@ -29,3 +29,4 @@ You should create one R script called *run_analysis.R* that does the following.
 
 [tidy_final.txt](https://github.com/alambike123/CourseraGettingCleaningData/blob/master/tidy_final.txt)
 
+[code_book.md](https://github.com/alambike123/CourseraGettingCleaningData/blob/master/code_book.md)
